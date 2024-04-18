@@ -1,0 +1,68 @@
+<head>
+    <%- include("../shared/head") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Romnick Zinampan, 8834187</h1>
+
+        <p><a class="link-primary" href="/">Order Juices</a></p>
+        <p><a class="link-primary" href="/orders">View All Orders</a></p>
+
+        <h3>Thank you for your Purchase!</h3>
+        <h4>Here are your order details:</h4>
+        <table class="table table-hover table-bordered">
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <%= fullName %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>
+                        <%= contactNumber %>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Products</td>
+                </tr>
+                <% if (product1.quantity > 0) { %>
+                <tr>
+                    <td>Mango Juice(Quantity: <%= product1.quantity %>)</td>
+                    <td>$<%= product1.price %></td>
+                </tr>
+                <% } %>
+                <% if (product2.quantity > 0) { %>
+                <tr>
+                    <td>Berry Juice (Quantity: <%= product2.quantity %>)</td>
+                    <td>$<%= product2.price %></td>
+                </tr>
+                <% } %>
+                <% if (product3.quantity > 0) { %>
+                <tr>
+                    <td>Apple Juice (Quantity: <%= product3.quantity %>)</td>
+                    <td>$<%= product3.price %></td>
+                </tr>
+                <% } %>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$<%= subtotal.toFixed(2) %></td>
+                </tr>
+                <tr>
+                    <td>Tax Rate</td>
+                    <td>$<%= taxRate.toFixed(2) %></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>$<%= total.toFixed(2) %></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <%- include("../shared/footer") %>
+    </div>
+
+    <%- include("../shared/scripts") %>
+</body>

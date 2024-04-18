@@ -1,0 +1,46 @@
+<head>
+    <%- include("../shared/head") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Romnick Zinampan, 8834187</h1>
+
+        <p><a class="link-primary" href="/">Order Juices</a></p>
+        <p><a class="link-primary" href="/orders">View All Orders</a></p>
+        <p><a href="/logout" class="link-primary">Logout</a></p>
+
+        <h4>List of Orders:</h4>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Mango Juice</th>
+                    <th>Berry Juice</th>
+                    <th>Apple Juice</th>
+                    <th>Sub Total</th>
+                    <th>Tax Rate</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let order of orders ) { %>
+                    <tr>
+                        <td><%= order.fullName %></td>
+                        <td><%= order.contactNumber %></td>
+                        <td><%= order.product1.quantity %></td>
+                        <td><%= order.product2.quantity %></td>
+                        <td><%= order.product3.quantity %></td>
+                        <td>$<%= order.subtotal.toFixed(2) %></td>
+                        <td>$<%= order.taxRate.toFixed(2) %></td>
+                        <td>$<%= order.total.toFixed(2) %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <%- include("../shared/footer") %>
+    </div>
+
+    <%- include("../shared/scripts") %>
+</body>

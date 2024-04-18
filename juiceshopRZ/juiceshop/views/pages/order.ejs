@@ -1,0 +1,53 @@
+<head>
+    <%- include("../shared/head") %>
+</head>
+<body>
+    <div class="container">
+        <h1>Romnick Zinampan, 8834187</h1>
+
+        <p><a class="link-primary" href="/">Order Juices</a></p>
+        <p><a class="link-primary" href="/orders">View All Orders</a></p>
+
+        <!-- Errors -->
+        <% if (typeof errors !=="undefined") { errors.forEach(error => { %>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <span><%= error.msg %></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        <% })} %>
+
+        <form method="post" action="/">
+            <div class="mb-3">
+              <label class="form-label" for="fullName">Name*</label>
+              <input class="form-control" type="text" name="fullName"/>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="contactNumber">Phone*</label>
+                <input class="form-control" type="text" name="contactNumber" placeholder="###-###-####"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="product1">Mango Juice</label>
+                <input class="form-control" type="text" name="product1"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="product2">Berry Juice</label>
+                <input class="form-control" type="text" name="product2"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="product3">Apple Juice</label>
+                <input class="form-control" type="text" name="product3"/>
+            </div>
+            
+            <input class="btn btn-primary" type="submit" value="Place Order"/>
+
+        </form>
+
+        <%- include("../shared/footer") %>
+    </div>
+
+    <%- include("../shared/scripts") %>
+</body>
